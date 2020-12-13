@@ -9,7 +9,7 @@ const buyBut = document.querySelectorAll(".btn.btn-success");
 const basketGoods = document.querySelector(".art");
 const basketPrices = document.querySelector(".pri");
 const resetBasketBut = document.querySelector(".btn.btn-light");
-const finalMessageString = 'Вашата поръчка на стойност <span style="color:blue" id="final"> </span> е готова. Очаквайте доставката до <span style="color:orange" id="time"> </span> минути.'
+const finalMessageString = 'Your order totalling <span style="color:blue" id="final"> </span> is ready. Expect your delivery in aproximately <span style="color:orange" id="time"> </span> minutes.'
 let purBasket = [];
 
 function buyProd() {
@@ -42,7 +42,7 @@ function basketDisplay(){
     curPriceLi.innerHTML = String(Object.values(i)).trim();
     basketPrices.prepend(curPriceLi);
     totalPrice += Number(String(Object.values(i)).trim());
-    basketPrices.lastElementChild.innerHTML = String(totalPrice)+' лв'
+    basketPrices.lastElementChild.innerHTML = String(totalPrice)+' lv'
     //console.log(totalPrice);
     //console.log(String(Object.keys(i)).trim());
     //console.log(String(Object.values(i)).trim());
@@ -58,7 +58,7 @@ function makeVisible(element){
 }
 
 function getAdminPass(){
-  return prompt('Моля въведете парола');
+  return prompt('Please input password');
 }
 
 function checkAdmin(pass){
@@ -67,11 +67,11 @@ function checkAdmin(pass){
 }
 
 function displaySuccess(){
-  alert('Благодаря! Може да използвате функцията за добавяне на продукти')
+  alert('Thank you! You can use the admin functions for adding/deleting products now')
 }
 
 function displayError(){
-  alert('Грешна Парола! Опитайте отново!')
+  alert('Wrong password! Try again!')
 }
 
 function clearBasket(){
@@ -82,7 +82,7 @@ function clearBasket(){
   while (basketPrices.children.length > 1) {
     basketPrices.firstElementChild.remove();
   }
-  basketPrices.lastElementChild.innerHTML = '0 лв';
+  basketPrices.lastElementChild.innerHTML = '0 lv';
 }
 
 
@@ -99,11 +99,11 @@ youAdmin.addEventListener('click', function () {
 )
 
 function finalPurchaseSh(){
-  if (basketPrices.lastElementChild.innerHTML != '0 лв'){
+  if (basketPrices.lastElementChild.innerHTML != '0 lv'){
     $(final).text(basketPrices.lastElementChild.innerHTML);
     $(time).text(randomNumber(14,61));
   } else {
-    $(finalMessage).html('Не сте избрали нито един артикул. Моля опитайте отново!')
+    $(finalMessage).html('You have not choosen any product. Please try again!')
   }
 }
 
